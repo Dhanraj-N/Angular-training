@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { InbuiltDirectiveComponent } from './inbuilt-directive/inbuilt-directive.component';
+import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
+import { CustomDirectiveDirective } from './directives/custom-directive.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilterPipe
+    FilterPipe,
+    InbuiltDirectiveComponent,
+    CustomDirectiveComponent,
+    CustomDirectiveDirective
   ],
   imports: [
     BrowserModule,
