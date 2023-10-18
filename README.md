@@ -7,3 +7,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Custom Pipe
 - Built-in Directive
 - Custom Directive
+
+### Day 2 (18-10-2023)
+- TS Array Methods
