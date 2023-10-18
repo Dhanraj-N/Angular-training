@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
 
 @Component({
@@ -14,10 +14,12 @@ export class AppComponent implements OnInit {
   filterText:string='';
   a:number=1.22;
 
+  @Input() appCustomDirective = "";
   constructor (private service:DataService){ }
 
   ngOnInit(): void {
   this.employees= this.service.getData()
   }
+
 
 }
