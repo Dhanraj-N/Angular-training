@@ -38,4 +38,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - sort() 	Sorts the elements of an array 
 - splice() 	Adds/Removes elements from an array 
 - toString() 	Converts an array to a string, and returns the result 
-- unshift() 	Adds new elements to the beginning of an array, and returns the new length 
+- unshift() 	Adds new elements to the beginning of an array, and returns the new length
+
+  ### Day 3
+  - Routing
+  - Template driven form
+  - ng-template and ng-container
