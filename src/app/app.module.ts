@@ -8,14 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { InbuiltDirectiveComponent } from './inbuilt-directive/inbuilt-directive.component';
 import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
 import { CustomDirectiveDirective } from './directives/custom-directive.directive';
+import { ArrayMethodsComponent } from './array-methods/array-methods.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [  
+    AppComponent, 
     FilterPipe,
     InbuiltDirectiveComponent,
     CustomDirectiveComponent,
-    CustomDirectiveDirective
+    CustomDirectiveDirective,
+    ArrayMethodsComponent
   ],
   imports: [
     BrowserModule,
