@@ -1,4 +1,4 @@
-<h2>{{strData | titlecase}}</h2>
+<!-- <h2>{{strData | titlecase}}</h2>
 <h2>{{strData | uppercase}}</h2>
 <h6>{{myDate | date: 'shortDate'}}</h6>
 <h6>{{myDate | date: 'fullDate'}}</h6>
@@ -35,6 +35,22 @@
     <app-inbuilt-directive></app-inbuilt-directive>
     <app-custom-directive></app-custom-directive>
 
-    <h2 appCustomDirective>hover me</h2>
+    
 
     <app-array-methods></app-array-methods>
+
+    <div *ngIf="rating >4  else myelsepart">
+        Great..! You have good ratings.
+    </div>
+
+    <ng-template #myelsepart> 
+       Sorry..! You have less ratings.
+    </ng-template>
+     -->
+  <ul>
+    <li><a routerLink="custom-directive">customDirectve</a></li>
+    <li><a routerLink="inbuilt-directive">inbuiltDirectve</a></li>
+    <li><a routerLink="array-methods">ArrayMethods</a></li>
+    <li><a routerLink="tdf">Tdf</a></li>
+  </ul>
+     <router-outlet></router-outlet>

@@ -9,6 +9,7 @@ import { InbuiltDirectiveComponent } from './inbuilt-directive/inbuilt-directive
 import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
 import { CustomDirectiveDirective } from './directives/custom-directive.directive';
 import { ArrayMethodsComponent } from './array-methods/array-methods.component';
+import { TdfComponent } from './tdf/tdf.component';
 
 @NgModule({
   declarations: [  
@@ -17,7 +18,8 @@ import { ArrayMethodsComponent } from './array-methods/array-methods.component';
     InbuiltDirectiveComponent,
     CustomDirectiveComponent,
     CustomDirectiveDirective,
-    ArrayMethodsComponent
+    ArrayMethodsComponent,
+    TdfComponent
   ],
   imports: [
     BrowserModule,
