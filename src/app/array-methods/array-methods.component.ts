@@ -32,7 +32,7 @@ export class ArrayMethodsComponent implements OnInit {
  public flatMapResult: any;
 
  public foreachData:any[]=dataForForeach
- public foreachResult: any[]=[];
+ public foreachResult: any;
 
  public includesData:any[]=dataForIncludes;
  public includesResult: any;
@@ -44,7 +44,7 @@ export class ArrayMethodsComponent implements OnInit {
  public joinResult: any;
 
  public keysData:any[]=dataForKeys
- public keysResult: any[]=[];
+ public keysResult: any;
 
  public lastIndexOfData:any[]=dataForLastIndexOf
  public lastIndexOfResult: any;
@@ -125,7 +125,6 @@ export class ArrayMethodsComponent implements OnInit {
   }
 
   onConcat(): void {
-   
     this.concatResult = this.concatData.concat(this.filterData);
   }
 
@@ -163,9 +162,9 @@ onFlatMap ():void{
 }
 
 onForeach():void{
-  // this.foreachResult= this.foreachData.forEach((d:any)=>{
-  //  return d.age=d.age+10
-  //  })
+this.foreachData.forEach((d:any)=>{
+ d.age=d.age+10
+   });
    console.log("foreach result "+this.foreachResult);
    
 }
@@ -188,7 +187,10 @@ this.joinResult=this.joinData.join()
 
 
 onKeys():void{
-// this.keysResult=this.keysData.keys()
+this.keysResult=this.keysData.keys()
+ for (const key of this.keysData){
+  console.log(key)
+ }
 }
 
 onlastIndexOf():void{
@@ -240,7 +242,7 @@ onSome():void{
 }
 
 onSort():void{
-  this.sortResult=this.sortData.sort()
+ this.sortResult=this.sortData.sort()
 }
 
 onSplice():void{
@@ -248,15 +250,15 @@ onSplice():void{
 }
 
 onTostring():void{
-  this.tostringResult=this.tostringData.toString()
+  this.tostringResult=this.tostringData.toString();
 }
 
 onUnshift():void{
-  this.unshiftResult=this.unshiftData.unshift({ id: 100, name: 'abc100' , age: 50 })
+  this.unshiftResult=this.unshiftData.unshift({ id: 100, name: 'abc100' , age: 50 });
 }
 
 onFill():void{
-  this.fillResult=this.fillData.fill(  { id: 4, name: 'abc4' , age: 14 },2,4)
+  this.fillResult=this.fillData.fill(  { id: 4, name: 'abc4' , age: 14 } ,2 ,4);
 }
 
 }

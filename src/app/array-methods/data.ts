@@ -234,12 +234,7 @@ export const dataForSplice: Array<any> =
 export const dataForTostring: Array<any> = 
 [   
     
-    { id: 1, name: 'abc1' , age: 11 },
-    { id: 2, name: 'abc2' , age: 12 },
-    { id: 3, name: 'abc3' , age: 13 },
-    { id: 4, name: 'abc4' , age: 14 },
-    { id: 5, name: 'abc5' , age: 15 },
-    { id: 6, name: 'abc6' , age: 16 }
+   1,2,3,4,5
 ];
 
 export const dataForUnshift: Array<any> = 
