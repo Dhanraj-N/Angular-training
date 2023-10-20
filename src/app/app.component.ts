@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   filterText:string='';
   a:number=1.22;
 
+  rating=5
+
   @Input() appCustomDirective = "";
   constructor (private service:DataService){ }
 

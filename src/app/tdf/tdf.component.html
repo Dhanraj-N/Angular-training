@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+           <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+            <div class="form-group">
+               <label>Name</label>
+               <input name="name" ngModel #Name="ngModel"  type="text" placeholder="Enter your name" class="form-control" required minlength="3">
+               <div class="alert alert-danger" *ngIf="Name.invalid && Name.touched">
+                  <div  *ngIf="Name.errors?.['required']">Name is required</div>
+                  <div  *ngIf="Name.errors?.['minlength']">Name must have at least 3 characters</div>
+               </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input name="email" ngModel #Email="ngModel" type="text" placeholder="Enter your email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <div class="alert alert-danger" *ngIf="Email.invalid && Email.touched">
+                    <div  *ngIf="Email.errors?.['required']">Email is required</div>
+                    <div  *ngIf="Email.errors?.['pattern']">Please Enter appropriate Email</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input name="phone" #Phone="ngModel" ngModel type="tel" placeholder="Enter your phone no" class="form-control" required min="10">
+                <div class="alert alert-danger" *ngIf="Phone.invalid && Phone.touched">
+                    <div *ngIf="Phone.errors?.['required']">Phone No is required</div>
+                    <div *ngIf="Phone.errors?.['min']">Phone No must have at least 10 digits</div>l
+                </div>
+            </div>
+
+            <div class="form-group">
+            <label for="">City</label>
+               <select class="form-control" name="city">
+                <option>Select city</option>
+                <option>Mumbai</option>
+                <option>Pune</option>
+                <option>Hyderabad</option>
+                <option>Surat</option>
+               </select>
+            </div>
+             
+            <label for="">Gender</label>
+            <div class="form-group">
+                <label for="male">
+                    <input type="radio" ngModel id="male" value="male" name="gender" ngModel> Male
+                </label> <br>
+                <label for="female">
+                    <input type="radio" ngModel value="female" id="female" name="gender" ngModel> Female
+                </label>
+            </div>
+              
+            <label for="condition">
+                <input type="checkbox" name="agreement" ngModel #con="ngModel" id="condition"> I agree all terms & conditions.
+            </label><br>
+            <button [disabled]="!form.valid" class="btn btn-success">Submit</button>
+             
+            </form>
+        </div>
+    </div>
+</div>
