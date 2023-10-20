@@ -1,0 +1,175 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            {{myForm.value | json}}
+
+             <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+            <div class="form-group">
+               <label >Id</label>
+               <input name="id" ngModel #Id="ngModel" type="number" placeholder="Enter Id" class="form-control" required>
+               <div class="alert alert-danger" *ngIf="Id.invalid && Id.touched">
+                    <div *ngIf="Id.errors?.['required']">Id is required</div>
+               </div>
+            </div>
+
+            <div class="form-group">
+                <label >Name</label>
+                <input name="name" #Name="ngModel"   ngModel type="string" placeholder="Enter Name" minlength="3" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="Name.invalid && Name.touched">
+                    <div *ngIf="Name.errors?.['required']">Name is required</div>
+                    <div *ngIf="Name.errors?.['minlength']">Name must have at least 3 characters</div>
+                </div>
+             </div>
+
+             <div class="form-group">
+                <label >Age</label>
+                <input name="age" #Age="ngModel" ngModel type="number" placeholder="Enter Age" class="form-control" min="10" required>
+                <div class="alert alert-danger" *ngIf="Age.invalid && Age.touched">
+                    <div *ngIf="Age.errors?.['required']">Age is required</div>
+                    <div *ngIf="Age.errors?.['min']">Age must be more than 9</div>
+                </div>
+             </div>
+
+            <h6><label>Address :</label></h6>
+            <div ngModelGroup="address" #address="ngModelGroup">
+                <div class="form-group">
+                    <label>House No</label>
+                    <input ngModel name="houseNo" #HouseNo="ngModel" class="form-control" placeholder="Enter your House No" required>
+                    <div class="alert alert-danger" *ngIf="HouseNo.invalid && HouseNo.touched">
+                        <div *ngIf="HouseNo.errors?.['required']">House No is required</div>
+                   </div>
+                </div>
+
+                <div>
+                    <label>Colony</label>
+                    <input ngModel name="colony" #Colony="ngModel" placeholder="Enter your colony" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="Colony.invalid && Colony.touched">
+                        <div *ngIf="Colony.errors?.['required']">Colony is required</div>
+                   </div>  
+                </div>
+                <div>
+                    <label>City</label>
+                    <select class="form-control" ngModel name="city">
+                        <option value="">Select City</option>
+                        <option value="{{item}}" *ngFor="let item of cities" >{{item}}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>State</label>
+                    <select class="form-control" name="state" ngModel>
+                        <option value="">Select State</option>
+                        <option>Maharastra</option>
+                        <option>Gujrat</option>
+                        <option>Telangana</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Country</label>
+                    <select class="form-control" name="country" ngModel>
+                        <option value="">Select Country</option>
+                        <option>India</option>
+                        <option>Japan</option>
+                        <option>China</option>
+                    </select>
+                </div>
+                 
+            </div><br>
+
+             <button class="btn btn-success">Submit</button>
+            </form> 
+        </div>
+    </div>
+</div> <hr>
+
+
+
+
+
+<form #myForm2="ngForm" (ngSubmit)="onSubmit2(myForm2.value)">
+
+    {{model | json}}
+    <div>
+      <label>Name :</label>
+      <input type="text" name="firstName" [(ngModel)]="model.name"  required>
+    </div>
+    <div>
+        <label>Age :</label>
+        <input type="number" name="age" [(ngModel)]="model.age"  required>
+    </div>
+
+    <h6><label>Address :</label></h6>
+        <div ngModelGroup="address" #address="ngModelGroup">
+            <div class="form-group">
+                <label>House No :</label>
+                <input ngModel name="houseNo" [(ngModel)]="model.addresses[0].houseNo" #HouseNo="ngModel" placeholder="Enter your House No" required>
+            </div>
+                
+            <div>
+                <label>City :</label>
+                <select  [(ngModel)]="model.addresses[0].city" ngModel name="city">
+                     <option value="">Select City</option>
+                     <option value="{{item}}" *ngFor="let item of cities" >{{item}}</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Colony :</label>
+                <input ngModel name="colony" #Colony="ngModel" [(ngModel)]="model.addresses[0].colony" placeholder="Enter your colony" required>
+            </div>
+
+            <div>
+                <label>State :</label>
+                <select  [(ngModel)]="model.addresses[0].state" name="state" ngModel>
+                    <option value="">Select State</option>
+                    <option>Maharastra</option>
+                    <option>Gujrat</option>
+                    <option>Telangana</option>
+                 </select>
+            </div>
+
+            <div>
+            <label>Country :</label>
+                <select [(ngModel)]="model.addresses[0].country" name="country" ngModel>
+                    <option value="">Select Country</option>
+                    <option>India</option>
+                    <option>Japan</option>
+                    <option>China</option>
+                </select>
+            </div>
+                 
+            </div><br>
+     
+     <button>submit</button>
+  </form>
+<hr>
+  <table>
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of model.addresses">
+            <td></td>
+        </tr>
+    </tbody>
+  </table>
+  <hr>
+
+  <table>
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of hello">
+            <td>hello data is {{item.name}}</td>
+            <td *ngFor="let iteme of item.addresses">
+                {{iteme.city}}
+            </td>
+        </tr>
+    </tbody>
+  </table>
