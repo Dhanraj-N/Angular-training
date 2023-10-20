@@ -40,7 +40,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - toString() 	Converts an array to a string, and returns the result 
 - unshift() 	Adds new elements to the beginning of an array, and returns the new length
 
-  ### Day 3
+  ### Day 3 (19-10-2023)
   - Routing
   - Template driven form
   - ng-template and ng-container
+ 
+ ### Day 4 (20-10-2023)
+ - Nested Template driven form
+ - Nested Template driven form using array   
