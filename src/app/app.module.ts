@@ -10,6 +10,7 @@ import { CustomDirectiveComponent } from './custom-directive/custom-directive.co
 import { CustomDirectiveDirective } from './directives/custom-directive.directive';
 import { ArrayMethodsComponent } from './array-methods/array-methods.component';
 import { TdfComponent } from './tdf/tdf.component';
+import { TemplateDrivenForm2Component } from './nested-template-driven-form/template-driven-form2.component';
 
 @NgModule({
   declarations: [  
@@ -19,7 +20,8 @@ import { TdfComponent } from './tdf/tdf.component';
     CustomDirectiveComponent,
     CustomDirectiveDirective,
     ArrayMethodsComponent,
-    TdfComponent
+    TdfComponent,
+    TemplateDrivenForm2Component
   ],
   imports: [
     BrowserModule,
