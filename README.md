@@ -10,7 +10,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Day 2 (18-10-2023)
 - TS Array Methods
-- Method Name 	Description 
 - concat() 	Joins arrays and returns an array with the joined arrays 
 - copyWithin() 	Copies array elements within the array, to and from specified positions 
 - every() 	Checks if every element in an array passes a test 
