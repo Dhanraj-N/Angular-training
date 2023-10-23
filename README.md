@@ -48,4 +48,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - Nested Template driven form
 
 ### Day 5 (21-10-2023)
- - Nested Template driven form using array   
+ - Nested Template driven form using array
+
+### Day 6 (23-10-2023)
+-Reactive Form
