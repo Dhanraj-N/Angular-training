@@ -1,0 +1,6 @@
+<div style="border: 1px solid black">
+    This is parent: 
+    <br>
+    Child click count: {{dataFromChild}}
+    <app-child [strDataRecieved]="strData" (childClick)="onChildClick($event)"></app-child>
+</div>

@@ -12,6 +12,8 @@ import { ArrayMethodsComponent } from './array-methods/array-methods.component';
 import { TdfComponent } from './tdf/tdf.component';
 import { TemplateDrivenForm2Component } from './nested-template-driven-form/template-driven-form2.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ParentComponent } from './componentInteraction/parent/parent.component';
+import { ChildComponent } from './componentInteraction/child/child.component';
 
 @NgModule({
   declarations: [  
@@ -23,7 +25,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     ArrayMethodsComponent,
     TdfComponent,
     TemplateDrivenForm2Component,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
