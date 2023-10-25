@@ -52,3 +52,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Day 6 (23-10-2023)
 -Reactive Form
+
+### Day 7 (25-10-2023)
+- Sending Data from parent to child using Input property
+- Sending Data from Child to Parent using Output property
