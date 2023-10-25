@@ -11,7 +11,7 @@ export class ReactiveFormComponent {
   constructor(private fb:FormBuilder){}
 
   RegistrationForm=this.fb.group({
-    name:['',[Validators.required, Validators.minLength(4)]],
+    name:['',[Validators.required, Validators.maxLength(5)]],
     email:['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
     age:['',[Validators.required, Validators.min(16)]],
     address:this.fb.group({
@@ -23,7 +23,6 @@ export class ReactiveFormComponent {
     })
   }) 
 
-  get f() { return this.RegistrationForm.controls; }
   onSubmit(){
     console.log(this.RegistrationForm.value);
   }
