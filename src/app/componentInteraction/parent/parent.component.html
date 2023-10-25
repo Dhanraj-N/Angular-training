@@ -2,5 +2,7 @@
     This is parent: 
     <br>
     Child click count: {{dataFromChild}}
-    <app-child [strDataRecieved]="strData" (childClick)="onChildClick($event)"></app-child>
+    <br>
+    <button (click)="onParentClick()">click</button>
+    <app-child [strDataRecieved]="strData"  (childClick)="onChildClick($event)"></app-child>
 </div>

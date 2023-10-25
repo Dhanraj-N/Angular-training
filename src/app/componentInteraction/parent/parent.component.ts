@@ -7,9 +7,15 @@ import { Component } from '@angular/core';
 })
 export class ParentComponent {
   strData='This message is from parent';
-  
   dataFromChild = 0;
+
   onChildClick(data:any){
      this.dataFromChild=data
   }
+
+  onParentClick(){
+  let parentClickNo=Math.random()+10
+  console.log(parentClickNo);
+  }
+  
 }
