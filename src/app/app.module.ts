@@ -14,6 +14,8 @@ import { TemplateDrivenForm2Component } from './nested-template-driven-form/temp
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParentComponent } from './componentInteraction/parent/parent.component';
 import { ChildComponent } from './componentInteraction/child/child.component';
+import { OneComponent } from './componentInteraction/one/one.component';
+import { TwoComponent } from './componentInteraction/two/two.component';
 
 @NgModule({
   declarations: [  
@@ -27,7 +29,9 @@ import { ChildComponent } from './componentInteraction/child/child.component';
     TemplateDrivenForm2Component,
     ReactiveFormComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    OneComponent,
+    TwoComponent
   ],
   imports: [
     BrowserModule,

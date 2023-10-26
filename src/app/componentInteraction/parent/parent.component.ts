@@ -12,9 +12,8 @@ export class ParentComponent implements OnInit {
   dataFromChild = 0;
   parentClickNo = 0;
 
-  ngOnInit(): void {
-    this.fun()
-  }
+  ngOnInit(): void { }
+  
   onChildClick(data:any): void {
     this.dataFromChild = data;
   }
