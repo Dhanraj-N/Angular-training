@@ -3,6 +3,6 @@
     <br>
     Child click count: {{dataFromChild}}
     <br>
-    <button (click)="onParentClick()">click</button>
-    <app-child [strDataRecieved]="strData"  (childClick)="onChildClick($event)"></app-child>
+    <button (click)="onParentClick()">sendDataToChild</button>
+    <app-child [strDataRecieved]="strData" [randomNo]="parentClickNo"  (childClick)="onChildClick($event)"></app-child>
 </div>
