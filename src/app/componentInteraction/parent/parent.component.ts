@@ -22,30 +22,5 @@ export class ParentComponent implements OnInit {
    onParentClick(): void {
     this.parentClickNo = Math.random();
   }
-  
-  fun(){
-    this.observable.subscribe(
-      {
-        next(x) {
-          console.log('got value ' + x);
-        }
-      }
-    )
-  }
- observable=new Observable ((sub)=>{
-  sub.next(11);
-  sub.next(21);
-  sub.next(31);
-
- setTimeout(()=>{
-   sub.next(400);
-   console.log("h");
-   }, 1000)
-  sub.complete()
- })
-
- 
- 
-
 
 }
