@@ -59,3 +59,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Day 8 (26-10-2023)
 - Sending data from one component to another using BehaviorSubject & Subject
+
+### Day 9 (27-10-2023)
+- Nested Reactive Form
