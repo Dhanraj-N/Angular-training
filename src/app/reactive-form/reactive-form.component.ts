@@ -16,14 +16,22 @@ export class ReactiveFormComponent implements OnInit{
       id:['', [Validators.required]],
       name:['', [Validators.required]],
       age:['', [Validators.required, Validators.min(18), Validators.max(76)]],
-      email:['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
+      email:['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      address: this.fb.group({
+        addressLine1:['', [Validators.required]],
+        addressLine2:[''],
+        landmark:['',[Validators.required]],
+        country:['',[Validators.required]],
+        state:['',[Validators.required]],
+        city:['',[Validators.required]],
+      }),
     })
   }
 
   onSubmit(){
     this.submitted = true;
     if (this.registrationForm.valid) {
-      alert('Form Submitted succesfully.');
+      alert('Form Submitted succesfully..');
       console.log(this.registrationForm.value);
     }
   }

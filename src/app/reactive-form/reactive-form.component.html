@@ -2,13 +2,14 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-           
+             {{registrationForm.value | json}}
+             <hr>
             <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="">Id</label>
                 <input type="number" placeholder="Enter Id" class="form-control" formControlName="id">
                 <span class="text-danger" *ngIf="(registrationForm.get('id')?.touched || submitted) && registrationForm.get('id')?.errors?.['required']">
-                   Id is required
+                   Id is required.
                 </span>
             </div>
 
@@ -16,7 +17,7 @@
                 <label for="">Name</label>
                 <input type="text" placeholder="Enter Name" class="form-control" formControlName="name">
                 <span class="text-danger" *ngIf="(registrationForm.get('name')?.touched || submitted) && registrationForm.get('name')?.errors?.['required']">
-                    Name is required
+                    Name is required.
                 </span>
             </div>
 
@@ -38,8 +39,70 @@
                     <span *ngIf="registrationForm.get('email')?.errors?.['pattern']">Please Enter Valid Email</span>
                 </div>
             </div>
+             <h5><label>Address</label></h5>
+            <div formGroupName="address">
+                <div class="form-group">
+                      <label for="">AddressLine 1</label>
+                      <input type="text" placeholder="Enter your address" class="form-control" formControlName="addressLine1">
+                      <span class="text-danger" *ngIf="(registrationForm.get('address.addressLine1')?.touched || submitted) && registrationForm.get('address.addressLine1')?.errors?.['required']">
+                        address 1 is required.
+                      </span>
+                </div>
 
-            <button>Submit</button>
+            <div class="form-group">
+                    <label for="">AddressLine 2</label>
+                    <input type="text" placeholder="Enter your address 2" class="form-control" formControlName="addressLine2">
+            </div> 
+
+            <div class="form-group">
+                <label for="">Landmark</label>
+                <input type="text" placeholder="Enter your Landmark" class="form-control" formControlName="landmark">
+                <span class="text-danger" *ngIf="(registrationForm.get('address.landmark')?.touched || submitted) && registrationForm.get('address.landmark')?.errors?.['required']">
+                   Landmark is required.
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Country</label>
+                <select class="form-control" formControlName="country">
+                    <option value="">Select Country</option>
+                    <option>India</option>
+                    <option>Japan</option>
+                    <option>China</option>
+                </select>
+                <span class="text-danger" *ngIf="(registrationForm.get('address.country')?.touched || submitted) && registrationForm.get('address.country')?.errors?.['required']">
+                    Country is required.
+                </span>
+           </div>
+
+           <div class="form-group">
+             <label for="">State</label>
+             <select class="form-control" formControlName="state">
+                <option value="">Select State</option>
+                <option>Maharastra</option>
+                <option>Gujrat</option>
+                <option>Telangana</option>
+            </select>
+            <span class="text-danger" *ngIf="(registrationForm.get('address.state')?.touched || submitted) && registrationForm.get('address.state')?.errors?.['required']">
+                State is required.
+            </span>
+           </div>
+
+           <div class="form-group">
+            <label for="">City</label>
+            <select class="form-control" formControlName="city">
+               <option value="">Select City</option>
+               <option>Mumbai</option>
+               <option>Surat</option>
+               <option>Hyderabad</option>
+            </select>
+           <span class="text-danger" *ngIf="(registrationForm.get('address.city')?.touched || submitted) && registrationForm.get('address.city')?.errors?.['required']">                   
+            City is required.
+           </span>
+          </div>
+          </div>
+          
+            <button class="btn btn-success">Submit</button>
         </form>
          
         </div>
