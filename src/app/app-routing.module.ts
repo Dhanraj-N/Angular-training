@@ -19,7 +19,7 @@ const routes: Routes = [
 {path:'reactiveform', component:ReactiveFormComponent},
 {path:'parentToChild', component: ParentComponent}, 
 {path:'one', component:OneComponent},
-{path:'two', component:TwoComponent}
+{path:'two', component:TwoComponent},
 ];
 
 @NgModule({

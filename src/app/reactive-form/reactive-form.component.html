@@ -1,84 +1,47 @@
+
 <div class="container">
     <div class="row">
         <div class="col-6">
-             {{RegistrationForm.value | json}}
-        <form [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()">
+           
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label>Name</label>
-                <input formControlName="name" type="text" placeholder="Enter Name" class="form-control">
-               <div class="alert alert-danger" *ngIf="RegistrationForm.get('name')?.invalid && RegistrationForm.get('name')?.touched">
-                    <div *ngIf="RegistrationForm.get('name')?.errors?.['required']">Name is required</div>
-               </div>
-            </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input formControlName="email" type="text" placeholder="Enter Email" class="form-control">
-                <div class="alert alert-danger" *ngIf="RegistrationForm.get('email')?.invalid && RegistrationForm.get('email')?.touched ">
-                    <div *ngIf="RegistrationForm.get('email')?.errors?.['required']" >Email is required</div>
-                    <div *ngIf="RegistrationForm.get('email')?.errors?.['pattern']" >Enter appropriate email pattern</div>
-                </div>
+                <label for="">Id</label>
+                <input type="number" placeholder="Enter Id" class="form-control" formControlName="id">
+                <span class="text-danger" *ngIf="(registrationForm.get('id')?.touched || submitted) && registrationForm.get('id')?.errors?.['required']">
+                   Id is required
+                </span>
             </div>
 
             <div class="form-group">
-                <label>Age</label>
-                <input formControlName="age" type="number" placeholder="Enter Age" class="form-control">
-                <div class="alert alert-danger" *ngIf="RegistrationForm.get('age')?.invalid && RegistrationForm.get('age')?.touched">
-                    <div *ngIf="RegistrationForm.get('age')?.errors?.['required']" >Age is required</div>
-                    <div *ngIf="RegistrationForm.get('age')?.errors?.['min']" >Age must be more than 15</div>
+                <label for="">Name</label>
+                <input type="text" placeholder="Enter Name" class="form-control" formControlName="name">
+                <span class="text-danger" *ngIf="(registrationForm.get('name')?.touched || submitted) && registrationForm.get('name')?.errors?.['required']">
+                    Name is required
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Age</label>
+                <input type="number" placeholder="Enter Age" class="form-control" formControlName="age">
+                <div class="text-danger" *ngIf="(registrationForm.get('age')?.touched || submitted)">
+                   <span *ngIf="registrationForm.get('age')?.errors?.['required']">Age is required</span>
+                   <span *ngIf="registrationForm.get('age')?.errors?.['min']">Age must be 18 or more</span>
+                   <span *ngIf="registrationForm.get('age')?.errors?.['max']">Age must be less than 75</span>
                 </div>
             </div>
-            
-           <h6><label>Address</label></h6> 
-            <div formGroupName="address">
-               <div class="form-group">
-                  <label>House No</label>
-                  <input formControlName="houseNo" type="number" placeholder="Enter houseNo" class="form-control">
-                  <div class="alert alert-danger" *ngIf="RegistrationForm.get('houseNo')?.invalid && RegistrationForm.get('houseNo')?.touched">
-                      <div *ngIf=" RegistrationForm.get('houseNo')?.errors?.['required']"> House No is required</div>
-                  </div>
-               </div>
 
-               <div class="form-group">
-                <label>Colony</label>
-                <input formControlName="colony" type="text" placeholder="Enter colony" class="form-control">
-                <div class="alert alert-danger" *ngIf="RegistrationForm.get('colony')?.invalid && RegistrationForm.get('colony')?.touched">
-                    <div *ngIf="RegistrationForm.get('colony')?.errors?.['required']" >Colony is required</div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" placeholder="Enter Email" class="form-control" formControlName="email">
+                <div class="text-danger" *ngIf="(registrationForm.get('email')?.touched || submitted)">
+                    <span *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required</span>
+                    <span *ngIf="registrationForm.get('email')?.errors?.['pattern']">Please Enter Valid Email</span>
                 </div>
-             </div>
-
-             <div class="form-group">
-                <label>City</label>
-                <input formControlName="city" type="text" placeholder="Enter houseNo" class="form-control">
-                <div class="alert alert-danger" *ngIf="RegistrationForm.get('city')?.invalid && RegistrationForm.get('city')?.touched">
-                    <div *ngIf="RegistrationForm.get('city')?.errors?.['required']" >City is required</div>
-                </div>
-             </div>
-
-             <div class="form-group">
-                <label>State</label>
-                <input formControlName="state" type="text" placeholder="Enter houseNo" class="form-control">
-                <div class="alert alert-danger" *ngIf="RegistrationForm.get('state')?.invalid && RegistrationForm.get('state')?.touched">
-                    <div *ngIf="RegistrationForm.get('state')?.errors?.['required']" >State is required</div>
-                </div>
-             </div>
-
-             <div class="form-group">
-                <label>Country</label>
-                <select class="form-control" formControlName="country">
-                    <option value="">select country</option>
-                    <option value="India">India</option>
-                    <option value="Japan">Japan</option>
-                    <option value="China">China</option>
-                </select>
-                <div class="alert alert-danger" *ngIf="RegistrationForm.get('country')?.invalid && RegistrationForm.get('country')?.touched">
-                    <div *ngIf="RegistrationForm.get('country')?.errors?.['required']" >Country is required</div>
-                </div>
-             </div>
             </div>
-            <button class="btn btn-primary">Submit</button>
+
+            <button>Submit</button>
         </form>
-
+         
         </div>
     </div>
 </div>
