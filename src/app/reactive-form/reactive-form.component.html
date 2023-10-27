@@ -8,7 +8,6 @@
                 <input formControlName="name" type="text" placeholder="Enter Name" class="form-control">
                <div class="alert alert-danger" *ngIf="RegistrationForm.get('name')?.invalid && RegistrationForm.get('name')?.touched">
                     <div *ngIf="RegistrationForm.get('name')?.errors?.['required']">Name is required</div>
-                    <div *ngIf="RegistrationForm.get('name')?.errors?.['required']">Name is required</div>
                </div>
             </div>
 

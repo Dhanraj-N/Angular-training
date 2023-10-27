@@ -6,9 +6,9 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class BsDataService {
 
-  public dataBSubject = new BehaviorSubject <String> ('');
+  public dataBSubject = new BehaviorSubject<String>('');
 
-  public dataSubject = new Subject <string>()
+  public dataSubject = new Subject<string>();
 
   constructor() { }
 
