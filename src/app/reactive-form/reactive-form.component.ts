@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,7 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit{
   registrationForm!: FormGroup;
-  submitted=false;
+  submitted = false;
+  addAddressButton=true;
   constructor(private fb:FormBuilder){}
 
   ngOnInit(): void {
@@ -17,15 +18,37 @@ export class ReactiveFormComponent implements OnInit{
       name:['', [Validators.required]],
       age:['', [Validators.required, Validators.min(18), Validators.max(76)]],
       email:['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      address: this.fb.group({
-        addressLine1:['', [Validators.required]],
-        addressLine2:[''],
-        landmark:['',[Validators.required]],
-        country:['',[Validators.required]],
-        state:['',[Validators.required]],
-        city:['',[Validators.required]],
-      }),
-    })
+      address: this.fb.array([])
+    });
+
+    this.addAddress();
+  }
+
+  get address(): FormArray{
+    return this.registrationForm.get('address') as FormArray;
+  }
+
+  addAddress(): void {
+    this.address.push(this.getAddressForm());
+    console.log(this.address)
+  }
+
+  removeAddress(i:number) {
+    this.address.removeAt(i);
+  }
+
+  getAddressForm(): FormGroup {
+    let addressIndex = this.registrationForm.value.address.length + 1;
+   
+    return new FormGroup({
+      addressId: new FormControl(addressIndex),
+      addressLine1: new FormControl('', [Validators.required]),
+      addressLine2: new FormControl(''),
+      landmark: new FormControl('', [Validators.required]),
+      country: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required])
+    });
   }
 
   onSubmit(){
@@ -35,6 +58,5 @@ export class ReactiveFormComponent implements OnInit{
       console.log(this.registrationForm.value);
     }
   }
- 
 
 }

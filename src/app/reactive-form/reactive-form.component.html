@@ -40,12 +40,20 @@
                 </div>
             </div>
              <h5><label>Address</label></h5>
-            <div formGroupName="address">
+            <div formArrayName="address">
+                <div *ngFor="let item of address.controls; let i = index ">
+                    <div [formGroupName]="i">
+                
+                 <div class="form-group">
+                        <label for="">addressId</label>
+                        <input type="text" placeholder="Enter your addressId" class="form-control" formControlName="addressId">
+                </div>
+                        
                 <div class="form-group">
                       <label for="">AddressLine 1</label>
                       <input type="text" placeholder="Enter your address" class="form-control" formControlName="addressLine1">
-                      <span class="text-danger" *ngIf="(registrationForm.get('address.addressLine1')?.touched || submitted) && registrationForm.get('address.addressLine1')?.errors?.['required']">
-                        address 1 is required.
+                      <span class="text-danger" *ngIf="(item.get('addressLine1')?.touched || submitted) && item.get('addressLine1')?.errors?.['required']">
+                        Address 1 is required.
                       </span>
                 </div>
 
@@ -57,7 +65,7 @@
             <div class="form-group">
                 <label for="">Landmark</label>
                 <input type="text" placeholder="Enter your Landmark" class="form-control" formControlName="landmark">
-                <span class="text-danger" *ngIf="(registrationForm.get('address.landmark')?.touched || submitted) && registrationForm.get('address.landmark')?.errors?.['required']">
+                <span class="text-danger" *ngIf="(item.get('landmark')?.touched || submitted) && item.get('landmark')?.errors?.['required']">
                    Landmark is required.
                 </span>
             </div>
@@ -70,7 +78,7 @@
                     <option>Japan</option>
                     <option>China</option>
                 </select>
-                <span class="text-danger" *ngIf="(registrationForm.get('address.country')?.touched || submitted) && registrationForm.get('address.country')?.errors?.['required']">
+                <span class="text-danger" *ngIf="(item.get('country')?.touched || submitted) && item.get('country')?.errors?.['required']">
                     Country is required.
                 </span>
            </div>
@@ -83,7 +91,7 @@
                 <option>Gujrat</option>
                 <option>Telangana</option>
             </select>
-            <span class="text-danger" *ngIf="(registrationForm.get('address.state')?.touched || submitted) && registrationForm.get('address.state')?.errors?.['required']">
+            <span class="text-danger" *ngIf="(item.get('state')?.touched || submitted) && item.get('state')?.errors?.['required']">
                 State is required.
             </span>
            </div>
@@ -96,15 +104,27 @@
                <option>Surat</option>
                <option>Hyderabad</option>
             </select>
-           <span class="text-danger" *ngIf="(registrationForm.get('address.city')?.touched || submitted) && registrationForm.get('address.city')?.errors?.['required']">                   
+           <span class="text-danger" *ngIf="(item.get('city')?.touched || submitted) && item.get('city')?.errors?.['required']">                   
             City is required.
            </span>
           </div>
+        
           </div>
-          
+           <div style="display: flex;" >
+            <button class="btn btn-danger mb-3" (click)="removeAddress(i)">Remove</button><br>
+           </div>
+        </div>
+    </div>  
+    
+          <div style="display: flex;">
             <button class="btn btn-success">Submit</button>
+            <button class="btn btn-primary ml-4" (click)="addAddress()">addAddress</button>
+          </div>
         </form>
          
         </div>
     </div>
 </div>
+
+
+
