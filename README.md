@@ -62,3 +62,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Day 9 (27-10-2023)
 - Nested Reactive Form
+
+### Day 10 ( 30-10-2023)
+- Nested Reactive Form Using FormArray
