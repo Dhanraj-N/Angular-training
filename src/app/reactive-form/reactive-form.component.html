@@ -32,6 +32,15 @@
             </div>
 
             <div class="form-group">
+                <label for="">Phone</label>
+                <input type="number" placeholder="Enter Phone No" class="form-control" formControlName="phone">
+                <div class="text-danger" *ngIf="(registrationForm.get('phone')?.touched || submitted)">
+                    <span *ngIf="registrationForm.get('phone')?.errors?.['required']">Phone No is required</span>
+                    <span *ngIf="registrationForm.get('phone')?.errors?.['pattern']">Phone No must have 10 digits</span>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="">Email</label>
                 <input type="text" placeholder="Enter Email" class="form-control" formControlName="email">
                 <div class="text-danger" *ngIf="(registrationForm.get('email')?.touched || submitted)">

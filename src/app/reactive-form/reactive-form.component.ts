@@ -17,6 +17,7 @@ export class ReactiveFormComponent implements OnInit{
       id:['', [Validators.required]],
       name:['', [Validators.required]],
       age:['', [Validators.required, Validators.min(18), Validators.max(76)]],
+      phone:['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       email:['',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       address: this.fb.array([])
     });
