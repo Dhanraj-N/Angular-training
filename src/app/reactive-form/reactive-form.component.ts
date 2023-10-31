@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Cities, Countries, States } from './dropdownData';
 
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })
-export class ReactiveFormComponent implements OnInit{
+export class ReactiveFormComponent implements OnInit {
   registrationForm!: FormGroup;
   submitted = false;
-  addAddressButton=true;
+  addAddressButton = true;
+
+  countryData: Array<any> = Countries; 
+  stateData: Array<any> = States; 
+  cityData: Array<any> = Cities; 
+
   constructor(private fb:FormBuilder){}
 
   ngOnInit(): void {
@@ -31,7 +37,6 @@ export class ReactiveFormComponent implements OnInit{
 
   addAddress(): void {
     this.address.push(this.getAddressForm());
-    console.log(this.address)
   }
 
   removeAddress(i:number) {
@@ -59,5 +64,4 @@ export class ReactiveFormComponent implements OnInit{
       console.log(this.registrationForm.value);
     }
   }
-
 }
