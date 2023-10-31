@@ -16,6 +16,7 @@ import { ParentComponent } from './componentInteraction/parent/parent.component'
 import { ChildComponent } from './componentInteraction/child/child.component';
 import { OneComponent } from './componentInteraction/one/one.component';
 import { TwoComponent } from './componentInteraction/two/two.component';
+import { CascadingComponent } from './cascading/cascading.component';
 
 @NgModule({
   declarations: [  
@@ -31,7 +32,8 @@ import { TwoComponent } from './componentInteraction/two/two.component';
     ParentComponent,
     ChildComponent,
     OneComponent,
-    TwoComponent
+    TwoComponent,
+    CascadingComponent
   ],
   imports: [
     BrowserModule,
