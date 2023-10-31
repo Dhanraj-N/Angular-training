@@ -9,6 +9,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParentComponent } from './componentInteraction/parent/parent.component';
 import { OneComponent } from './componentInteraction/one/one.component';
 import { TwoComponent } from './componentInteraction/two/two.component';
+import { CascadingComponent } from './cascading/cascading.component';
 
 const routes: Routes = [
 {path:'custom-directive', component:CustomDirectiveComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
 {path:'parentToChild', component: ParentComponent}, 
 {path:'one', component:OneComponent},
 {path:'two', component:TwoComponent},
+{path:'cascadingDropdown', component:CascadingComponent},
 ];
 
 @NgModule({

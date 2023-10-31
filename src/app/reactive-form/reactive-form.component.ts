@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Cities, Countries, States } from './dropdownData';
+import { Cities, Countries, States } from '../cascading/dropdownData';
 
 @Component({
   selector: 'app-reactive-form',

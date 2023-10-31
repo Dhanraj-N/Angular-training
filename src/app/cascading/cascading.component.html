@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+             {{registrationForm.value | json}}
+             <hr>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Country</label>
+                <select (change)="onSelectCountry($event)" class="form-control" formControlName="country">
+                   <option value="">Select Country</option>
+                    <ng-container *ngFor="let country of countryData">
+                        <option [value]="country.id">{{country.name}}</option>
+                    </ng-container>
+                </select>
+                <span class="text-danger" *ngIf="(registrationForm.get('country')?.touched || submitted) && registrationForm.get('country')?.errors?.['required']">
+                    Country is required.
+               </span>
+            </div>
+
+            <div class="form-group">
+                <label>State</label>
+                <select (change)="onSelectState($event)" class="form-control" formControlName="state">
+                    <option value="">Select state</option>
+                    <ng-container *ngFor="let state of stateList">
+                       <option [value]="state.id">{{state.name}}</option>
+                    </ng-container>
+                </select>
+                <span class="text-danger" *ngIf="(registrationForm.get('state')?.touched || submitted) && registrationForm.get('state')?.errors?.['required']">
+                    State is required.
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <select class="form-control" formControlName="city">
+                   <option value="">Select city</option>
+                   <ng-container *ngFor="let city of cityList">
+                      <option [value]="city.id">{{city.name}}</option>
+                   </ng-container>
+                </select>
+                <span class="text-danger" *ngIf="(registrationForm.get('city')?.touched || submitted) && registrationForm.get('city')?.errors?.['required']">
+                    City is required.
+                </span>
+            </div>
+
+            <button class="btn btn-success">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
