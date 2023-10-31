@@ -21,6 +21,8 @@ export class CascadingComponent implements OnInit {
   cityData: Array<any> = Cities;
   cityList: Array<any> = Cities;
 
+  formData: Array<any> = [];
+
   constructor (private fb : FormBuilder){}
 
   ngOnInit(): void {
@@ -32,23 +34,25 @@ export class CascadingComponent implements OnInit {
   }
 
   onSubmit(){
+
     this.submitted = true;
     if (this.registrationForm.valid) {
-      console.log(this.registrationForm.value);
+      this.formData.push(this.registrationForm.value);
+      // this.registrationForm.reset();
     }
   }
 
-  onSelectCountry(id:any) : void{
+  onSelectCountry(id : any) : void{
     this.registrationForm.controls['state'].reset(); 
     this.registrationForm.controls['city'].reset(); 
-    const countryId = +id.target.value;
-    this.stateList = this.stateData.filter((d: any) => d.countryId === countryId);
+    const countryId =  +id.target.value;
+    this.stateList = this.stateData.filter((d: any) => d.countryId == countryId);
   }
 
   onSelectState(id : any) : void{
     const stateId = +id.target.value;
     this.registrationForm.controls['city'].reset(); 
-    this.cityList = this.cityData.filter((d1: any) => d1.stateId === stateId);
+    this.cityList = this.cityData.filter((d1: any) => d1.stateId == stateId);
   }
 
 }

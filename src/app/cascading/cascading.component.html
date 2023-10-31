@@ -4,6 +4,12 @@
              {{registrationForm.value | json}}
              <hr>
         <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            
+            <!-- <div class="form-group">
+                 <label for="">Id</label>
+                 <input type="number" placeholder="Enter Id" class="form-control" formControlName="id">
+            </div> -->
+
             <div class="form-group">
                 <label>Country</label>
                 <select (change)="onSelectCountry($event)" class="form-control" formControlName="country">
@@ -26,16 +32,16 @@
                     </ng-container>
                 </select>
                 <span class="text-danger" *ngIf="(registrationForm.get('state')?.touched || submitted) && registrationForm.get('state')?.errors?.['required']">
-                    State is required.
+                    State is required. 
                 </span>
             </div>
 
             <div class="form-group">
                 <label>City</label>
                 <select class="form-control" formControlName="city">
-                   <option value="">Select city</option>
+                   <option value="" >Select city</option>
                    <ng-container *ngFor="let city of cityList">
-                      <option [value]="city.id">{{city.name}}</option>
+                      <option [value]="city.id" >{{city.name}}</option>
                    </ng-container>
                 </select>
                 <span class="text-danger" *ngIf="(registrationForm.get('city')?.touched || submitted) && registrationForm.get('city')?.errors?.['required']">
@@ -46,5 +52,26 @@
             <button class="btn btn-success">Submit</button>
         </form>
         </div>
+        {{formData | json}}
     </div>
 </div>
+<br>
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CountryId</th>
+            <th>StateId</th>
+            <th>CityId</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of formData">
+            <td>{{item.id}}</td>
+            <td>{{item.country}}</td>
+            <td>{{item.state}}</td>
+            <td>{{item.city}}</td>
+        </tr>
+    </tbody>
+</table>
