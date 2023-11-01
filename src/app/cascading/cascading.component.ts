@@ -11,7 +11,7 @@ export class CascadingComponent implements OnInit {
 
   registrationForm!: FormGroup;
   submitted = false;
-
+  
   countryData: Array<any> = Countries;
   countryList: Array<any> = Countries;
 
@@ -27,6 +27,7 @@ export class CascadingComponent implements OnInit {
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
+      id: [0],
       country : ['', [Validators.required]],
       state : ['', [Validators.required]],
       city : ['', [Validators.required]],
@@ -34,11 +35,34 @@ export class CascadingComponent implements OnInit {
   }
 
   onSubmit(){
-
+    debugger;
     this.submitted = true;
+
     if (this.registrationForm.valid) {
-      this.formData.push(this.registrationForm.value);
-      // this.registrationForm.reset();
+
+       let formValue = this.registrationForm.value;
+
+      if(formValue.id == 0){
+        // Find next ID
+        const formDataLength = this.formData.length;
+        let nextId = 1;
+        if (formDataLength != 0) {
+          nextId = formDataLength + 1;
+        } 
+  
+        // set next id in id field
+        let data = this.registrationForm.value;
+        data.id = nextId; 
+        
+        // Push form into formData 
+        this.formData.push(data);
+      } else {
+         
+      }
+
+      // reset form
+      this.registrationForm.reset();
+      this.submitted = false;
     }
   }
 
@@ -53,6 +77,17 @@ export class CascadingComponent implements OnInit {
     const stateId = +id.target.value;
     this.registrationForm.controls['city'].reset(); 
     this.cityList = this.cityData.filter((d1: any) => d1.stateId == stateId);
+  }
+
+  onEdit(id: number): void {
+    debugger
+    // find record from "formData" using "id"
+       const record = this.formData.find((res) => res.id == id);
+
+    // patch object into form
+      this.registrationForm.patchValue(record);
+
+    // this.registrationForm.patch();
   }
 
 }
