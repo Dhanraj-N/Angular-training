@@ -52,7 +52,6 @@
             <button class="btn btn-success">Submit</button>
         </form>
         </div>
-        {{formData | json}}
     </div>
 </div>
 <br>
@@ -64,6 +63,7 @@
             <th>CountryId</th>
             <th>StateId</th>
             <th>CityId</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -72,6 +72,9 @@
             <td>{{item.country}}</td>
             <td>{{item.state}}</td>
             <td>{{item.city}}</td>
+            <td>
+                <button (click)="onEdit(item.id)">Edit</button>
+            </td>
         </tr>
     </tbody>
 </table>
