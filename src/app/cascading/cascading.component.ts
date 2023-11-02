@@ -35,7 +35,6 @@ export class CascadingComponent implements OnInit {
   }
 
   onSubmit(){
-    debugger;
     this.submitted = true;
 
     if (this.registrationForm.valid) {
@@ -57,7 +56,10 @@ export class CascadingComponent implements OnInit {
         // Push form into formData 
         this.formData.push(data);
       } else {
-         
+         let i=this.formData.findIndex((res) => res.id ===  formValue.id);
+         if (i !== -1){
+           this.formData[i] = this.registrationForm.value;
+         } 
       }
 
       // reset form
@@ -80,14 +82,11 @@ export class CascadingComponent implements OnInit {
   }
 
   onEdit(id: number): void {
-    debugger
     // find record from "formData" using "id"
        const record = this.formData.find((res) => res.id == id);
 
     // patch object into form
       this.registrationForm.patchValue(record);
-
-    // this.registrationForm.patch();
   }
 
 }
