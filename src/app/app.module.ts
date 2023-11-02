@@ -17,6 +17,9 @@ import { ChildComponent } from './componentInteraction/child/child.component';
 import { OneComponent } from './componentInteraction/one/one.component';
 import { TwoComponent } from './componentInteraction/two/two.component';
 import { CascadingComponent } from './cascading/cascading.component';
+import { CascadingPipe } from './cascading/cascading.pipe';
+import { ApiIntegrationComponent } from './api-integration/api-integration.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [  
@@ -33,13 +36,16 @@ import { CascadingComponent } from './cascading/cascading.component';
     ChildComponent,
     OneComponent,
     TwoComponent,
-    CascadingComponent
+    CascadingComponent,
+    CascadingPipe,
+    ApiIntegrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

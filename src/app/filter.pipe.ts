@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
   transform(employees:any [],filterText: string ) {
    
 
-    if (employees.length===0 || filterText==='') {
+    if (employees.length === 0 || filterText==='') {
       return employees;
     }
 

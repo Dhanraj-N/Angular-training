@@ -35,8 +35,9 @@ export class CascadingComponent implements OnInit {
   }
 
   onSubmit(){
+    debugger
     this.submitted = true;
-
+ 
     if (this.registrationForm.valid) {
 
        let formValue = this.registrationForm.value;
@@ -87,6 +88,12 @@ export class CascadingComponent implements OnInit {
 
     // patch object into form
       this.registrationForm.patchValue(record);
+  }
+
+  onDelete(id : any) : void{
+    const index = this.formData.indexOf(id);
+    
+    this.formData.splice(index, 1);
   }
 
 }

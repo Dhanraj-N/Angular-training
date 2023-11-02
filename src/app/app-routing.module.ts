@@ -10,6 +10,7 @@ import { ParentComponent } from './componentInteraction/parent/parent.component'
 import { OneComponent } from './componentInteraction/one/one.component';
 import { TwoComponent } from './componentInteraction/two/two.component';
 import { CascadingComponent } from './cascading/cascading.component';
+import { ApiIntegrationComponent } from './api-integration/api-integration.component';
 
 const routes: Routes = [
 {path:'custom-directive', component:CustomDirectiveComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
 {path:'one', component:OneComponent},
 {path:'two', component:TwoComponent},
 {path:'cascadingDropdown', component:CascadingComponent},
+{path:'ApiIntegration', component:ApiIntegrationComponent}
 ];
 
 @NgModule({
