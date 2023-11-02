@@ -65,3 +65,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Day 10 ( 30-10-2023)
 - Nested Reactive Form Using FormArray
+
+### Day 11 (31-10-2023)
+- Cascading Dropdown
+
+### Day 12 (2-11-2023)
+- API Integration
