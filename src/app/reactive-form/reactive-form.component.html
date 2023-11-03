@@ -5,15 +5,25 @@
    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
      <label for="">Id</label>
-     <input type="number" placeholder="Enter Id" class="form-control" formControlName="id"/>
-     <span class="text-danger" *ngIf="(registrationForm.get('id')?.touched || submitted) && registrationForm.get('id')?.errors?.['required']">
+     <input
+      type="number"
+      placeholder="Enter Id"
+      class="form-control"
+      formControlName="id"
+     />
+     <span
+      class="text-danger"
+      *ngIf="(registrationForm.get('id')?.touched || submitted) && registrationForm.get('id')?.errors?.['required']"
+     >
       Id is required.
      </span>
     </div>
 
     <div class="form-group">
      <label for="">Name</label>
-     <input type="text" placeholder="Enter Name"
+     <input
+      type="text"
+      placeholder="Enter Name"
       class="form-control"
       formControlName="name"
      />
@@ -148,10 +158,7 @@
 
        <div class="form-group">
         <label>Country</label>
-        <select
-         class="form-control"
-         formControlName="country"
-        >
+        <select class="form-control" formControlName="country">
          <option value="">Select Country</option>
          <option [value]="country.id" *ngFor="let country of countryData">
           {{ country.name }}
@@ -167,10 +174,7 @@
 
        <div class="form-group">
         <label>State</label>
-        <select
-         class="form-control"
-         formControlName="state"
-        >
+        <select class="form-control" formControlName="state">
          <option value="">Select State</option>
          <ng-container *ngFor="let state of stateData">
           <option [value]="state.id">{{ state.name }}</option>

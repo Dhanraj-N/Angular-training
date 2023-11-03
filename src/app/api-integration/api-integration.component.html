@@ -1,67 +1,48 @@
-
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-
-            <div class="form-group">
-                    <label for="">userId</label>
-                    <input type="text" placeholder="Enter userId" ngModel name="userId" class="form-control">
-            </div>
-
-             <div class="form-group">
-                <label for="">Title</label>
-                <input type="text" placeholder="Enter Title" ngModel name="title" class="form-control">
-             </div>
-
-             <div class="form-group">
-                <label for="">Body</label>
-                <input type="text" placeholder="Enter body" ngModel name="body" class="form-control">
-             </div>
-
-             <button>Add</button>
-            </form>
-        </div>
-    </div>
-</div>
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <form #form1="ngForm" (ngSubmit)="updateData(form1.value)" >
-             
-            <div class="form-group">
-                  <label for="">Id</label>
-                  <input type="text" placeholder="Enter Id" ngModel [(ngModel)]="myId" name="id" class="form-control">
-            </div>    
-
-            <div class="form-group">
-                    <label for="">userId</label>
-                    <input type="text" placeholder="Enter userId" [(ngModel)]="myUserId" ngModel name="userId" class="form-control">
-            </div>
-
-             <div class="form-group">
-                <label for="">Title</label>
-                <input type="text" placeholder="Enter Title" [(ngModel)]="myTitle" ngModel name="title" class="form-control">
-             </div>
-
-             <div class="form-group">
-                <label for="">Body</label>
-                <input type="text" placeholder="Enter body" [(ngModel)]="myBody" ngModel name="body" class="form-control">
-             </div>
-
-             <button>Update</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<br>
-<button (click)="getData()">getAllData</button><br><br>
-<button (click)="getDataById(2)">getDataById</button>
+<h4 class="mr-3">CRUD with API</h4>
 <hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="apiForm" (ngSubmit)="postData(apiForm.value)">
+
+            <div class="form-group">
+                    <label for="">User Id</label>
+                    <input type="text" formControlName="userId" placeholder="Enter userId"  class="form-control">
+                    <span class="text-danger" *ngIf="(apiForm.get('userId')?.touched || submitted) && apiForm.get('userId')?.errors?.['required']">
+                        User Id is required
+                    </span>
+            </div>
+
+             <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" formControlName="title" placeholder="Enter Title"  class="form-control">
+                <span class="text-danger" *ngIf="(apiForm.get('title')?.touched || submitted) && apiForm.get('title')?.errors?.['required']">
+                    Title is required
+                </span>
+             </div>
+
+             <div class="form-group">
+                <label for="">Body</label>
+                <input type="text" formControlName="body" placeholder="Enter body" class="form-control">
+                <span class="text-danger" *ngIf="(apiForm.get('body')?.touched || submitted) && apiForm.get('body')?.errors?.['required']">
+                    Body is required
+                </span>
+             </div>
+
+             <button class="btn btn-secondary">Add post</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="d-flex m-3">
+    <input class="mr-2" type="number" [(ngModel)]="postId" name="postId" id="postId">
+    <button class="mr-2 btn btn-primary"  (click)="getDataById()">Get Post</button>
+    <button class="btn btn-success" (click)="getAllData()">Get All Post</button>
+</div>
 
 <table class="table">
     <thead>
@@ -74,36 +55,14 @@
         </tr >
     </thead>
     <tbody>
-        <tr *ngFor="let item of ApiData">
+        <tr *ngFor="let item of apiData">
             <td>{{item.id}}</td>
             <td>{{item.userId}}</td>
             <td>{{item.title}}</td>
             <td>{{item.body}}</td>
-            <td><button (click)="onEdit(item)">Edit</button>
-                <button (click)="deleteData(item.id)">Delete</button>
+            <td class="d-flex m-3"><button class="mr-2 btn btn-primary" (click)="onEdit(item)">Edit</button>
+                <button class="mr-2 btn btn-danger" (click)="deleteData(item.id)">Delete</button>
             </td>
         </tr>
     </tbody>
 </table>
-
-<hr>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>userId</th>
-            <th>Title</th>
-            <th>Body</th>
-        </tr >
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ApiDataById.id}}</td>
-            <td>{{ApiDataById.userId}}</td>
-            <td>{{ApiDataById.title}}</td>
-            <td>{{ApiDataById.body}}</td>
-        </tr>
-    </tbody>
-</table>
-
-
