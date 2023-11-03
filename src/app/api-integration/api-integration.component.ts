@@ -19,7 +19,6 @@ export class ApiIntegrationComponent implements OnInit{
   constructor(private service:ApiService) {}
 
   ngOnInit(): void {
-    
   }
 
   getData () {
@@ -35,15 +34,15 @@ export class ApiIntegrationComponent implements OnInit{
     })
   }
   
-  onSubmit(Obj:any) : void {
+  addData(Obj:any) : void {
     this.service.addData(Obj).subscribe((res) => {
-      console.log(res);
+      console.log('',res);
     })
   }
 
   deleteData(id:any){
     this.service.deleteData(id).subscribe((res) => {
-      console.log(res);
+      console.log("Data is deleted successfully of Id "+ id ,res);
     })
   }
 
@@ -52,6 +51,7 @@ export class ApiIntegrationComponent implements OnInit{
      this.myUserId = data.userId;
      this.myTitle = data.title;
      this.myBody = data.body;
+     this.isHidden = false;
   }
 
   updateData(data: any) {

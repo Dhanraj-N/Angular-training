@@ -2,11 +2,11 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+            <form #form="ngForm" (ngSubmit)="addData(form.value)">
 
             <div class="form-group">
-                    <label for="">userId</label>
-                    <input type="text" placeholder="Enter userId" ngModel name="userId" class="form-control">
+                <label for="">userId</label>
+                <input type="text" placeholder="Enter userId" ngModel name="userId" class="form-control">
             </div>
 
              <div class="form-group">
@@ -26,7 +26,7 @@
 </div>
 <br>
 
-<div class="container">
+<div class="container" [hidden]="isHidden">
     <div class="row">
         <div class="col-6">
             <form #form1="ngForm" (ngSubmit)="updateData(form1.value)" >
