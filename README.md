@@ -70,4 +70,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Cascading Dropdown
 
 ### Day 12 (2-11-2023)
-- API Integration
+- API Integration- Get and Post
+
+### Day 13 (3-11-2023)
+- API Integration- Put and Delete
+
