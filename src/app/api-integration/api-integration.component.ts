@@ -14,7 +14,9 @@ export class ApiIntegrationComponent implements OnInit {
  myBody = '';
  isHidden = true;
  submitted = false;
-
+ submitted2: any = true;
+ 
+ check = true;
  apiData: Array<any> = [];
  formData : Array<any> = [];
 
@@ -49,21 +51,55 @@ export class ApiIntegrationComponent implements OnInit {
  // Method for POST
 
   postData(formData : any): void {
+    debugger
     this.submitted = true;
-    if (this.apiForm.valid) {
-      this.service.postData(formData).subscribe((res) => {
-        this.apiData.push(res);
-     })
+    if (this.apiForm.valid ) {
+      let formValue = this.apiForm.value;
+      if(formValue.id == 0 && this.submitted2){
+        const formDataLength = this.formData.length;
+        let nextId = 1;
+        if (formDataLength != 0) {
+          nextId = formDataLength + 1;
+        } 
+        
+        let data = this.apiForm.value;
+        data.id = nextId; 
+        
+
+        this.formData.push(data);
+        console.log(this.apiForm.value);
+      } else {
+        let i=this.formData.findIndex((res) => res.id ===  formValue.id);
+        if (i !== -1){
+          this.formData[i] = this.apiForm.value;
+        }else{
+
+          if(this.check){
+            this.service.putData(formData).subscribe((res:any) => {
+              this.apiData[0].title = res.title;
+              this.apiData[0].body = res.body;
+            })
+            this.submitted = true;
+          }else{
+            this.service.putData(formData).subscribe((res:any) => {
+              this.apiData[res.id - 1].title = res.title;
+              this.apiData[res.id - 1].body = res.body;
+            })
+            this.submitted = true;
+          }
+          
+        } 
     }
   }
-
+  }
  // Method for PUT
 
  onEdit(id: any): void {
   const record = this.apiData.find((res) => {
-  return res.id == id.id
+  return res.id == id.id;
   })
   this.apiForm.patchValue(record);
+  this.submitted2 = false;
  }
 
  putData(data: any): void {
