@@ -91,9 +91,7 @@ export class CascadingComponent implements OnInit {
   }
 
   onDelete(id : any) : void{
-    
     const index = this.formData.indexOf(id);
-    
     this.formData.splice(index, 1);
   }
 

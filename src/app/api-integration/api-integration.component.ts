@@ -109,7 +109,7 @@ export class ApiIntegrationComponent implements OnInit {
  }
 
  // Method for DELETE
-
+                         
  deleteData(id: any): void {
   this.service.deleteData(id).subscribe((res) => {
    console.log('Record is deleted of Id ' + id, res);

@@ -21,6 +21,9 @@ import { CascadingPipe } from './cascading/cascading.pipe';
 import { ApiIntegrationComponent } from './api-integration/api-integration.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BootstrapComponent } from './bootstrap/bootstrap.component';
+
 @NgModule({
   declarations: [  
     AppComponent, 
@@ -38,14 +41,16 @@ import { HttpClientModule } from '@angular/common/http';
     TwoComponent,
     CascadingComponent,
     CascadingPipe,
-    ApiIntegrationComponent
+    ApiIntegrationComponent,
+    BootstrapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
