@@ -75,3 +75,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Day 13 (3-11-2023)
 - API Integration- Put and Delete
 
+### Day 14 (6-11-2023)
+- Bootstrap
